@@ -47,6 +47,7 @@ install.packages(c("psych", "stringi", "filesstrings"))
 3. Run the merge script:
    ```r
    source("ChildPsych_Qualtrics_Merge_v3.R")
+   ```
 (This will automatically source ChildPsych_QualtricsColNames_v2.R.)
 4. Script actions:
 
