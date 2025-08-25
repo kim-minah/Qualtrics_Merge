@@ -40,6 +40,9 @@ Install required packages with:
 
 ```r
 install.packages(c("psych", "stringi", "filesstrings"))
+```
+
+---
 
 ## Workflow
 1. Place raw Qualtrics CSV exports in the `input/` directory.  
@@ -48,25 +51,25 @@ install.packages(c("psych", "stringi", "filesstrings"))
    ```r
    source("ChildPsych_Qualtrics_Merge_v3.R")
    ```
-(This will automatically source ChildPsych_QualtricsColNames_v2.R.)
+   (This will automatically source `ChildPsych_QualtricsColNames_v2.R`.)  
 4. Script actions:
+   - Applies harmonized column names from `ChildPsych_QualtricsColNames_v2.R`  
+   - Removes redundant rows (e.g., test data, Qualtrics metadata fields)  
+   - Reconciles differences across age groups and pilot datasets  
+   - Merges all datasets into a single file  
+   - Archives previous exports and merged outputs  
+   - Writes a new merged dataset to the repo root  
 
-Applies harmonized column names from ChildPsych_QualtricsColNames_v2.R
-Removes redundant rows (e.g., test data, Qualtrics metadata fields)
-Reconciles differences across age groups and pilot datasets
-Merges all datasets into a single file
-Archives previous exports and merged outputs
-Writes a new merged dataset to the repo root
+---
 
 ## Output
-Childpsych_Merged_Qualtrics_M_DD_YYYY.csv
-Cleaned, standardized dataset combining pilot and main study questionnaire data.
-QC steps at the end of the script compare ExternalReference and DEMOS_Q1 IDs and report mismatches.
+- **`Childpsych_Merged_Qualtrics_M_DD_YYYY.csv`**  
+  Cleaned, standardized dataset combining pilot and main study questionnaire data.  
+- QC steps at the end of the script compare `ExternalReference` and `DEMOS_Q1` IDs and report mismatches.
+
+---
 
 ## Notes
-
-Pilot data participants are treated as timepoint 2 in ID fields.
-
-Differences in questionnaire structure between age groups (e.g., CBCL Preschool vs. CBCL, missing ICUP_Q7 in pilot) are resolved automatically by the colnames script.
-
-Large CSV files and history files (*.csv, .Rhistory) should be excluded from version control via .gitignore.
+- Pilot data participants are treated as **timepoint 2** in ID fields.  
+- Differences in questionnaire structure between age groups (e.g., CBCL Preschool vs. CBCL, missing ICUP_Q7 in pilot) are resolved automatically by the colnames script.  
+- Large CSV files and history files (`*.csv`, `.Rhistory`) should be excluded from version control via `.gitignore`.  
